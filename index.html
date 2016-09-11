@@ -1,0 +1,287 @@
+<!DOCTYPE html>  
+    <html>  
+        <head>  
+            <title>ebay aws--yuxinshi</title>  
+            <meta charset="utf-8" />  
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+            <link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css"> 
+    <style type="text/css">
+        .container
+        {
+            margin:20px;
+            vertical-align: middle;
+        }
+        .form-horizontal .control-label
+        {
+            padding-top: 7px;
+        }
+        
+        
+        #red
+        {
+        color:red
+        }
+        #green
+        {
+        color:green
+        }
+        #shareBtn
+        {
+        width:15;
+        height:15
+        }
+    
+    </style>
+    </head>  
+        
+    <body> 
+    <!--
+    facebook api
+    -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '360905200779342',
+          xfbml      : true,
+          version    : 'v2.3'
+        });
+      };
+    
+        
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+        
+        
+      //  document.write("===========");
+        
+        //document.getElementById('shareBtn').onclick = 
+ /*       function fb(name) {
+            FB.ui({
+            method: 'feed',
+            link: 'https://developers.facebook.com/docs/',
+               // 'http://cs-server.usc.edu:45678/hw/hw8/fb.png',
+        
+            caption: 'Search Information from eBay.com',
+            description:'Price:$ ',
+            name:name,
+            //source:source,
+}, function(response){
+    if (response && !response.error_code) {
+      alert('Posted Successfully');
+    } else {
+      alert('Not Posted');
+    }
+   
+    });
+}*/
+    </script>
+ <!--   <div
+  class="fb-like"
+  data-send="true"
+  data-width="450"
+  >
+</div>
+   -->
+   
+    <!--  
+         end api
+          -->        
+           <div class="container">
+            
+              <div class="row">
+               <span class="col-xs-2"><img src="http://cs-server.usc.edu:45678/hw/hw8/ebay.jpg" width="100" height="50"></span>
+               <span class="col-xs-2"><h3>Shopping</h3></span>  
+              </div>
+            
+            <form role="form" class="form-horizontal" name="search_form" id="search_form" action="index.php" method="get">  
+                <div class="form-group">
+                    <label for="keywords" class="control-label col-xs-2">Key words:<font color='red'>*</font></label>
+    <div class="col-xs-10">
+        <input type="text" class="form-control" placeholder="Enter keyword" id="keywords" name="keywords" /><br />
+    </div>
+                </div>
+  
+    <div class="form-group">
+    
+    <label for="min" class="control-label col-xs-2">Price range:</label>
+    <div class="col-md-2">
+        <input type="text" class="form-control" name="min" id="min" placeholder="from ($)"> 
+    </div>
+    <div class="col-md-2">
+        <input type="text" class="form-control" name="max" id="max" placeholder="to ($)"><br />
+    </div>
+    </div> 
+   
+    
+    <div class="form-group">
+      <label for="Condition[]" class="control-label col-xs-2">Condition:</label>
+       <div class="col-xs-10">
+       <div class="checkbox">
+      <label>  <input type="checkbox" name="Condition[]" value="1000"> New</label>
+    <label>
+        <input type="checkbox" name="Condition[]" value="3000"> Used</label>
+    <label>
+        <input type="checkbox" name="Condition[]" value="4000"> Very Good</label>
+    <label>
+        <input type="checkbox" name="Condition[]" value="5000"> Good</label>
+    <label>
+        <input type="checkbox" name="Condition[]" value="6000"> Acceptable</label><br />
+           </div>
+        </div>
+        </div>
+        
+    <div class="form-group">
+        <label for="ListingType[]" class="control-label col-xs-2">Buying Formats : </label>
+        <div class="col-xs-10"> 
+        <div class="checkbox">     
+    <label>
+        <input type="checkbox" name="ListingType[]" value="FixedPrice">Buy It Now</label>
+    <label>
+        <input type="checkbox" name="ListingType[]" value="Auction">Auction</label>
+    <label>
+        <input type="checkbox" name="ListingType[]" value="Classified">Classified Ads<br /></label>         </div>
+        </div>
+                </div>    
+    <div class="form-group">
+       <label for="ReturnsAcceptedOnly" class="control-label col-xs-2">Seller : </label>
+       <div class="col-xs-10">
+        <div class="checkbox">
+    <label>
+        <input type="checkbox" name="ReturnsAcceptedOnly">Return accepted<br /></label>
+    </div>
+        </div>
+                </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Shipping:</label>
+        <div class="col-xs-10">
+        <div class="checkbox">
+    <label>
+        <input type="checkbox" name="FreeShippingOnly">Free Shipping </label>
+    <label>
+        <input type="checkbox" name="ExpeditedShippingType">Expedited shipping<br /></label>
+    </div>
+        </div>
+                </div>
+    
+    <div class="form-group">
+    <div class="col-xs-offset-2 col-xs-10">
+    <input type="text" class="form-control" placeholder="Max handling time(days)" name="MaxHandlingTime" id="MaxHandlingTime"><br />
+    </div>
+    </div>
+    
+    
+    <div class="form-group">
+        <label for="sort_by" class="control-label col-xs-2">Sort by : </label>
+        <div class="col-xs-10">
+    <select name="sortOrder" id="sortOrder" class="form-control">
+       <option name="sort[]" value="BestMatch" selected >Best Match</option>                              
+       <option name="sort[]" value="CurrentPriceHighest">Price:highest first</option>
+       <option name="sort[]" value="PricePlusShippingHighest">Price + Shipping: highest first</option>
+       <option name="sort[]" value="PricePlusShippingLowest">Price + Shipping: lowest first</option>  
+    </select>   <br /> 
+    </div>
+      </div>
+       
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Results Per Page:</label>   
+        <div class="col-xs-10">                  
+        <select name="ItemsPerRange" id="ItemsPerRange" class="form-control">
+       <option  value="5" selected>5</option>
+       <option value="10">10</option></select>     <br /> 
+        </div> 
+    </div>     
+       <div class="form-group">
+       <div class="col-xs-offset-10 col-xs-12">
+       <button type="button" class="btn btn-default" name="clear" id="button" onClick="clearform()" value="clear" onClick="clearform()">clear</button>
+        <button type="submit" class="btn btn-primary" name="submit" value="search" >search</button>
+            </div>
+        </div>             
+    
+          
+                </form>  
+            </div>
+           
+           
+           
+            <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.js"></script>    
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.min.js"></script>
+            <script src="index.js" type="text/javascript" charset="utf-8"></script>  
+            <script>  
+                //MyValidator.init(); 
+               // $('#search_form').validate();
+              //  var pageNumber=1;
+               // document.write("====================");
+                function clearform()
+            {
+            //document.getElementById("form1").reset();  
+            document.search_form.keywords.value="";
+            //alert(document.search_form.Condition.value);
+            var items1 = document.getElementsByName("Condition[]");
+            //alert(items.length);
+            
+            for(i=0;i<items1.length;i++)
+            {
+                if(items1[i].checked)
+                   // alert(items[i].value);
+                    items1[i].checked=false;
+            }
+            
+            document.search_form.min.value="";
+            document.search_form.max.value="";
+            
+            
+           // document.search_form.ListingType.value="";
+            var items2 = document.getElementsByName("ListingType[]");
+            for(i=0;i<items2.length;i++)
+            {
+                if(items2[i].checked)
+                   items2[i].checked=false;
+            }
+            
+            var items3 = document.getElementsByName("ReturnsAcceptedOnly");
+            //alert(items3[0].checked);
+            if( items3[0].checked ) 
+                items3[0].checked=false;
+            var items4 = document.getElementsByName("FreeShippingOnly");
+            if( items4[0].checked ) 
+                items4[0].checked=false;
+            var items5 = document.getElementsByName("ExpeditedShippingType");
+            if( items5[0].checked ) 
+                items5[0].checked=false;
+            document.search_form.MaxHandlingTime.value="";
+            var items6 = document.getElementById("sortOrder");
+            items6.selectedIndex = 0;
+            //items6.options[items6.selectedIndex].text="Best Match";
+            //alert("selectedIndex:"+ selectedIndex+"\n selected text:"+selectedOption.text+"value:"+selectedOption.value);
+                //items6[0].checked=false;
+            //document.search_form.ItemsPerRange.value="";
+            var items7 = document.getElementById("ItemsPerRange");
+            items7.selectedIndex = 0;
+            var items8=document.getElementById("phpform");
+            items8.innerHTML = null;
+            //document.getElementById("queryform").innerHTML=null;
+        }
+            </script>  
+            
+          
+            
+<div name="phpform" id="phpform">
+
+</div>
+
+
+
+<noscript />
+        </body>  
+    </html>  
+       
