@@ -109,7 +109,7 @@ function getform(page)
                 
                 data_php = $('#search_form').serialize()+'&pageNumber='+page+'&submit=search';
                 $.ajax({
-                        url: 'http://scf.usc.edu/~yuxinshi/ebay/index.php',
+                        url: 'http://scf.usc.edu/~yuxinshi/AjaxEbaySearchWebApp/index.php',
                         type: 'GET',
                         data: data_php,
                         success: function(response) {
