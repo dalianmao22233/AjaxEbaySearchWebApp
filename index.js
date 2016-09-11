@@ -158,11 +158,11 @@ function getform(page)
                                     resultHTML+="FREE Shipping)";
                                 resultHTML+="    <i>Location:"+obj["item"+i]["basicInfo"]["location"]+"</i>";
                                 if(obj["item"+i]["basicInfo"]["topRatedListing"]=="true")
-                                    resultHTML+="<img src='http://cs-server.usc.edu:45678/hw/hw8/itemTopRated.jpg' width='30' height='30'>";
+                                    resultHTML+="<img src='itemTopRated.jpg' width='30' height='30'>";
                                 else
                                     resultHTML+="";
                                
-                                resultHTML+="<a href='#"+i+"' data-toggle='collapse'>View Details</a><img src='http://cs-server.usc.edu:45678/hw/hw8/fb.png' width='15' height='15' onClick='fb"+i+"()'>";
+                                resultHTML+="<a href='#"+i+"' data-toggle='collapse'>View Details</a><img src='fb.png' width='15' height='15' onClick='fb"+i+"()'>";
                                 
                                 
                                 //facebook apicall !!!!!
